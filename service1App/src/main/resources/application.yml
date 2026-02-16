@@ -1,0 +1,33 @@
+server:
+  port: 8082
+
+spring:
+  application:
+    name: employee-service
+
+  datasource:
+    primary:
+      jdbc-url: jdbc:postgresql://localhost:5432/attendance_db
+      username: postgres
+      password: 1234
+      driver-class-name: org.postgresql.Driver
+
+    archive:
+      jdbc-url: jdbc:postgresql://localhost:5432/employee_exit
+      username: postgres
+      password: 1234
+      driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs/employee
+  swagger-ui:
+    path: /swagger-ui.html
